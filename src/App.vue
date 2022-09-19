@@ -298,33 +298,5 @@
   </main>
 </template>
 
-<script>
-export default {
-  name: 'App',
-  data() {
-    return {
-      results: []
-    }
-  },
-  mounted() {
-    const options = {
-      method: 'GET',
-      headers: {
-        Accept: 'application/json',
-        Authorization: `Bearer ${yourAccessToken}`
-      }
-    };
-
-    fetch('http://localhost:8010/proxy/v1/audit/logs?createdAfter=2022-03-13&createdBefore=2022-03-15&limit=10&offset=1', options)
-      .then(response => response.json())
-      .then(res=> {
-        this.results = res;        
-        console.log(this.results);
-      })
-      .catch(err => console.error(err));      
-  }
-}
-</script>
-
 <style>
 </style>
